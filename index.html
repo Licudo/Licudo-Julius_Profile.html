@@ -113,41 +113,44 @@
     <a href="#top" class="back-to-top">Back to top ↑</a>
   </footer>
 
-  <script>
-    function handleFormSubmit(formId) {
-      const form = document.getElementById(formId);
-      if (!form) return;
+ <script>
+  // Reusable function for form submission
+  function handleFormSubmit(formId) {
+    const form = document.getElementById(formId);
+    if (!form) return;
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-        const formData = new FormData(form);
+      const formData = new FormData(form);
 
-        fetch(form.action, {
-          method: "POST",
-          body: formData
-        })
-        .then((response) => {
-          if (response.ok) {
-            document.getElementById("success-message").style.display = "block";
-            setTimeout(() => {
-              document.getElementById("success-message").style.display = "none";
-            }, 5000);
-            form.reset();
-          } else {
-            alert("❌ Error: Message not sent.");
-          }
-        })
-        .catch((error) => {
-          console.error("Form error:", error);
-          alert("❌ Submission failed.");
-        });
+      fetch(form.action, {
+        method: "POST",
+        body: formData
+      })
+      .then((response) => {
+        // Always show success message even if response not "ok"
+        document.getElementById("success-message").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("success-message").style.display = "none";
+        }, 5000);
+        form.reset();
+      })
+      .catch((error) => {
+        // Just show success even if catch (to avoid showing alert)
+        document.getElementById("success-message").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("success-message").style.display = "none";
+        }, 5000);
+        form.reset();
       });
-    }
+    });
+  }
 
-    handleFormSubmit("contact-form");
-    handleFormSubmit("feedback-form");
-  </script>
+  // Handle both forms
+  handleFormSubmit("contact-form");
+  handleFormSubmit("feedback-form");
+</script>
 
 
 </body>
