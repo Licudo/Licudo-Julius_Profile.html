@@ -61,13 +61,17 @@
             </form>
         </section>
 
-  <section id="feedback" class="feedback-section">
+<section id="feedback" class="feedback-section">
   <h2>⭐ Feedback Form</h2>
-<form id="feedback-form" class="feedback-form" action="https://formsubmit.co/jufl.licudo.sjc@phinmaed.com" method="POST">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="https://licudo-julius.github.io/?success=true"> 
-    
+  <form id="feedback-form" class="feedback-form" action="https://formsubmit.co/jufl.licudo.sjc@phinmaed.com" method="POST">
+    <!-- Required hidden fields -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_subject" value="New Feedback from Website">
+    <input type="hidden" name="_next" value="https://licudo-julius.github.io/?feedback=success">
+
+    <!-- Add basic identifiers -->
+    <input type="hidden" name="from_form" value="Feedback Form">
 
     <fieldset>
       <legend>How would you rate my page?</legend>
@@ -103,6 +107,7 @@
     <button type="submit" class="btn">Submit Feedback</button>
   </form>
 </section>
+
 
 
     </main>
