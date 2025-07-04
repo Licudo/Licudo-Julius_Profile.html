@@ -62,93 +62,92 @@
         </section>
 
     <section id="feedback" class="feedback-section">
-        <h2>⭐ Feedback Form</h2>
-        <form id="feedback-form" class="feedback-form" action="https://formsubmit.co/jufl.licudo.sjc@phinmaed.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://licudo-julius.github.io/#feedback">
+      <h2>⭐ Feedback Form</h2>
+      <form id="feedback-form" class="feedback-form" action="https://formsubmit.co/jufl.licudo.sjc@phinmaed.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://licudo-julius.github.io/#feedback">
 
-            <fieldset>
-                <legend>How would you rate my page?</legend>
-                <label><input type="radio" name="rating" value="1" required /> 1 Star</label>
-                <label><input type="radio" name="rating" value="2" /> 2 Stars</label>
-                <label><input type="radio" name="rating" value="3" /> 3 Stars</label>
-                <label><input type="radio" name="rating" value="4" /> 4 Stars</label>
-                <label><input type="radio" name="rating" value="5" /> 5 Stars</label>
-            </fieldset>
+        <fieldset>
+          <legend>How would you rate my page?</legend>
+          <label><input type="radio" name="rating" value="1" required /> 1 Star</label>
+          <label><input type="radio" name="rating" value="2" /> 2 Stars</label>
+          <label><input type="radio" name="rating" value="3" /> 3 Stars</label>
+          <label><input type="radio" name="rating" value="4" /> 4 Stars</label>
+          <label><input type="radio" name="rating" value="5" /> 5 Stars</label>
+        </fieldset>
 
-            <div class="form-group">
-                <label for="type">Type of Feedback</label>
-                <select id="type" name="type" required>
-                    <option value="">-- Choose One --</option>
-                    <option value="bug">Bug Report</option>
-                    <option value="suggestion">Suggestion</option>
-                    <option value="praise">Praise</option>
-                </select>
-            </div>
+        <div class="form-group">
+          <label for="type">Type of Feedback</label>
+          <select id="type" name="type" required>
+            <option value="">-- Choose One --</option>
+            <option value="bug">Bug Report</option>
+            <option value="suggestion">Suggestion</option>
+            <option value="praise">Praise</option>
+          </select>
+        </div>
 
-            <div class="form-group">
-                <label for="comments">Your Comments</label>
-                <textarea id="comments" name="comments" rows="5" required placeholder="Write your feedback here..."></textarea>
-            </div>
+        <div class="form-group">
+          <label for="comments">Your Comments</label>
+          <textarea id="comments" name="comments" rows="5" required placeholder="Write your feedback here..."></textarea>
+        </div>
 
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="terms" required />
-                    I agree to the terms and conditions.
-                </label>
-            </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="terms" required />
+            I agree to the terms and conditions.
+          </label>
+        </div>
 
-            <button type="submit" class="btn">Submit Feedback</button>
-        </form>
+        <button type="submit" class="btn">Submit Feedback</button>
+      </form>
     </section>
-</main>
+  </main>
 
-<div id="success-message" style="display: none; text-align:center; color:green; margin-top: 20px;">
+  <div id="success-message" style="display:none; text-align:center; color:green; margin-top: 20px;">
     ✅ Message sent successfully!
-</div>
+  </div>
 
-<footer class="site-footer">
+  <footer class="site-footer">
     <p>&copy; 2025 Julius Benedict Licudo. All rights reserved.</p>
     <a href="#top" class="back-to-top">Back to top ↑</a>
-</footer>
+  </footer>
 
-<form id="feedback-form" ...> ... </form>
-<script>
+  <script>
     function handleFormSubmit(formId) {
-        const form = document.getElementById(formId);
-        if (!form) return;
+      const form = document.getElementById(formId);
+      if (!form) return;
 
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-            const formData = new FormData(form);
+        const formData = new FormData(form);
 
-            fetch(form.action, {
-                method: "POST",
-                body: formData
-            })
-                .then((response) => {
-                    if (response.ok) {
-                        document.getElementById("success-message").style.display = "block";
-                        setTimeout(() => {
-                            document.getElementById("success-message").style.display = "none";
-                        }, 5000);
-                        form.reset();
-                    } else {
-                        alert("❌ Error: Message not sent.");
-                    }
-                })
-                .catch((error) => {
-                    console.error("Form error:", error);
-                    alert("❌ Submission failed.");
-                });
+        fetch(form.action, {
+          method: "POST",
+          body: formData
+        })
+        .then((response) => {
+          if (response.ok) {
+            document.getElementById("success-message").style.display = "block";
+            setTimeout(() => {
+              document.getElementById("success-message").style.display = "none";
+            }, 5000);
+            form.reset();
+          } else {
+            alert("❌ Error: Message not sent.");
+          }
+        })
+        .catch((error) => {
+          console.error("Form error:", error);
+          alert("❌ Submission failed.");
         });
+      });
     }
 
     handleFormSubmit("contact-form");
     handleFormSubmit("feedback-form");
-</script>
+  </script>
 
 
 </body>
