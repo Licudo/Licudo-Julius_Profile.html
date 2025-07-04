@@ -42,7 +42,7 @@
             </div>
 
             <div class="image">
-                <img src="pic.png" alt="My photo" />
+                <img src="Pic.png" alt="My photo" />
             </div>
         </section>
 
@@ -120,16 +120,42 @@
         <p>&copy; 2025 Julius Benedict Licudo. All rights reserved.</p>
         <a href="#top" class="back-to-top">Back to top ↑</a>
     </footer>
+<form id="feedback-form" ...> ... </form>
 
     <script>
-        // Show success message after natural form submission via redirect (_next is optional)
-        const params = new URLSearchParams(window.location.search);
-        if (params.has("success")) {
-            document.getElementById("success-message").style.display = "block";
-            setTimeout(() => {
-                document.getElementById("success-message").style.display = "none";
-            }, 5000);
-        }
+         function handleFormSubmit(formId) {
+     const form = document.getElementById(formId);
+     if (!form) return;
+
+     form.addEventListener("submit", function (e) {
+         e.preventDefault();
+
+         const formData = new FormData(form);
+
+         fetch(form.action, {
+             method: "POST",
+             body: formData
+         })
+             .then((response) => {
+                 if (response.ok) {
+                     document.getElementById("success-message").style.display = "block";
+                     setTimeout(() => {
+                         document.getElementById("success-message").style.display = "none";
+                     }, 5000);
+                     form.reset();
+                 } else {
+                     alert("❌ Error: Message not sent.");
+                 }
+             })
+             .catch((error) => {
+                 console.error("Form error:", error);
+                 alert("❌ Submission failed.");
+             });
+     });
+ }
+
+   
+ handleFormSubmit("feedback-form");
     </script>
 
 </body>
