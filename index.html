@@ -6,7 +6,6 @@
   <title>Julius | Web Developer</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
-
 </head>
 <body id="top">
 
@@ -47,13 +46,12 @@
       </div>
     </section>
 
+    <!-- Contact Form -->
     <section id="contact" class="contact-section">
       <h2>Contact Us!</h2>
       <form id="contact-form" class="contact-form" action="https://formsubmit.co/jufl.licudo.sjc@phinmaed.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://licudo-julius.github.io/#contact">
-
         <div class="form-row">
           <input type="text" name="name" placeholder="Your Name" required />
           <input type="email" name="email" placeholder="Your Email" required />
@@ -64,12 +62,12 @@
       </form>
     </section>
 
+    <!-- Feedback Form -->
     <section id="feedback" class="feedback-section">
       <h2>⭐ Feedback Form</h2>
       <form id="feedback-form" class="feedback-form" action="https://formsubmit.co/jufl.licudo.sjc@phinmaed.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://licudo-julius.github.io/#feedback">
 
         <fieldset>
           <legend>How would you rate my page?</legend>
@@ -107,7 +105,8 @@
     </section>
   </main>
 
-  <div id="success-message">
+  <!-- Success message -->
+  <div id="success-message" style="display: none; text-align:center; color: green; margin: 20px 0;">
     ✅ Message sent successfully!
   </div>
 
@@ -116,6 +115,7 @@
     <a href="#top" class="back-to-top">Back to top ↑</a>
   </footer>
 
+  <!-- Script for both forms -->
   <script>
     function handleFormSubmit(formId) {
       const form = document.getElementById(formId);
@@ -123,6 +123,7 @@
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
+
         const formData = new FormData(form);
 
         fetch(form.action, {
@@ -134,7 +135,7 @@
           form.reset();
         })
         .catch(() => {
-          showSuccessMessage(); // still show success
+          showSuccessMessage();
           form.reset();
         });
       });
