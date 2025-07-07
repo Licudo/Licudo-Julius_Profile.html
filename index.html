@@ -147,6 +147,20 @@
 
         handleFormSubmit("contact-form");
         handleFormSubmit("feedback-form");
+
+           let lastScrollY = window.scrollY;
+            const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > lastScrollY) {
+                
+                navbar.style.top = "-80px"; 
+    } else {
+               
+                navbar.style.top = "0";
+    }
+            lastScrollY = window.scrollY;
+});
     </script>
 
 </body>
